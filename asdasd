@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char** argv) {
+    int e=0;
+    int j=0;
+    int peso,edad,sump=0,sume=0,may=0,sumEd=0,porc=0,cante=0;
+    float prome=0,promp=0;
+    char nombre[20];
+    char nombremay[20];
+    
+    for(e=1;e<=2;e++){
+        for(j=1;j<=2;j++){
+            printf("ingrese el nombre:");
+            scanf("%s",&nombre);
+            getchar();
+            printf("ingrese la edad:");
+            scanf("%d",&edad);
+            getchar();
+            printf("ingrese el peso:");
+            scanf("%d",&peso);
+            getchar();
+            sump=sump+peso;
+            sume=sume+edad; 
+            if(edad<20){
+                sumEd++;
+            }
+/*
+            if(edad>may){
+                may=edad;
+                nombremay=nombre;
+            }
+*/
+            
+        }
+        
+        prome=sume/2;
+        promp=sump/2;
+        porc=(sume/2)*100;
+        if(promp>75){
+            cante++;
+        }
+        printf("el promedio de las edades es %2.f\n",prome);
+        printf("el promedio del peso es %2.f\n",promp);
+        printf("el porcentaje de jugadores menos de 20 es %d\n",porc);
+        
+    }
+    
+    
+/*
+    printf("El nombre del jugador que tiene mayor edad es %c",nombremay);
+*/
+    printf("La cantidad de equipos %d",cante);
+    
+    return (EXIT_SUCCESS);
+}
