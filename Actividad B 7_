@@ -1,17 +1,27 @@
+
+/* 
+ * File:   main.c
+ * Author: juanc
+ *
+ * Created on 14 de mayo de 2017, 20:50
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#define EQUIPO 2
+#define JUGADORES 2
 int main(int argc, char** argv) {
+
     int e=0;
     int j=0;
-    int peso,edad,sump=0,sume=0,may=0,sumEd=0,porc=0,cante=0;
-    float prome=0,promp=0;
+    int peso,edad,sump=0,sume=0,may=0,sumEd=0,cante=0;
+    float prome=0,promp=0,porc=0;
     char nombre[20];
     char nombremay[20];
     
-    for(e=1;e<=2;e++){
-        for(j=1;j<=2;j++){
+    for(e=1;e<=EQUIPO;e++){
+        for(j=1;j<=JUGADORES;j++){
             printf("ingrese el nombre:");
             scanf("%s",&nombre);
             getchar();
@@ -26,32 +36,26 @@ int main(int argc, char** argv) {
             if(edad<20){
                 sumEd++;
             }
-/*
-            if(edad>may){
-                may=edad;
-                nombremay=nombre;
+            if (edad>may){
+                strcpy(nombremay,nombre);
             }
-*/
-            
         }
         
-        prome=sume/2;
-        promp=sump/2;
+        prome=sume/JUGADORES;
+        promp=sump/JUGADORES;
         porc=(sume/2)*100;
         if(promp>75){
             cante++;
         }
-        printf("el promedio de las edades es %2.f\n",prome);
-        printf("el promedio del peso es %2.f\n",promp);
-        printf("el porcentaje de jugadores menos de 20 es %d\n",porc);
+        printf("el promedio de las edades es %.2f\n",prome);
+        printf("el promedio del peso es %.2f\n",promp);
+        printf("el porcentaje de jugadores menos de 20 es %.2f\n",porc);
         
     }
     
     
-/*
-    printf("El nombre del jugador que tiene mayor edad es %c",nombremay);
-*/
-    printf("La cantidad de equipos %d",cante);
+    printf("El jugador mas viejo se llama %s\n",nombremay);
+    printf("La cantidad de equipos con peso promedio mayor de 75 kg. es de %d\n",cante);
     
     return (EXIT_SUCCESS);
 }
